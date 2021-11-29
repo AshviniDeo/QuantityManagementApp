@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, ImageBackground, TextInput} from 'react-native';
 
 import UnitPicker from '../component/UnitPicker';
 import Mybutton from '../component/Mybutton';
+import TextBox from '../component/TextBox';
 export default function Temperature() {
   const image = require('../assets/bgimages.jpeg');
   const [fromText, setFromText] = useState('');
@@ -58,13 +59,7 @@ export default function Temperature() {
             </Text>
           </View>
           <View>
-            <TextInput
-              onChangeText={text => setFromText(text)}
-              maxLength={10}
-              keyboardType="numeric"
-              placeholder="Enter Value"
-              style={styles.inputbox}
-            />
+            <TextBox onChangeText={setFromText} val={fromText} />
             <UnitPicker
               pickerOption={pickerOption}
               selectedValue={fromValue}

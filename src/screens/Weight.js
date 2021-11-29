@@ -3,12 +3,13 @@ import {View, Text, StyleSheet, ImageBackground, TextInput} from 'react-native';
 
 import Mybutton from '../component/Mybutton';
 import UnitPicker from '../component/UnitPicker';
+import TextBox from '../component/TextBox';
 function Weight() {
   const image = require('../assets/bgimages.jpeg');
   const [fromText, setFromText] = useState('');
   const [toText, setToText] = useState('');
   const [fromValue, setFromValue] = useState('Gram');
-  const [toValue, setToValue] = useState('Gram');
+  const [toValue, setToValue] = useState('Kilogram');
   const pickerOption = ['Kilogram', 'Gram', 'Pound'];
   const convertWeight = () => {
     let answer;
@@ -57,13 +58,7 @@ function Weight() {
             </Text>
           </View>
           <View>
-            <TextInput
-              onChangeText={text => setFromText(text)}
-              maxLength={10}
-              keyboardType="numeric"
-              placeholder="Enter Value"
-              style={styles.inputbox}
-            />
+            <TextBox onChangeText={setFromText} val={fromText} />
             <UnitPicker
               pickerOption={pickerOption}
               selectedValue={fromValue}

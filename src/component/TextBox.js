@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 
-function TextBox(onChangeText, setFromText) {
+function TextBox({onChangeText, val}) {
   return (
     <View>
       <TextInput
@@ -9,7 +9,8 @@ function TextBox(onChangeText, setFromText) {
         keyboardType="numeric"
         placeholder="Enter Value"
         style={styles.box}
-        onChangeText={text => setFromText(text)}
+        onChangeText={text => onChangeText(text)}
+        value={val}
       />
     </View>
   );
